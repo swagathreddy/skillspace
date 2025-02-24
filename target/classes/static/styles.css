@@ -1,0 +1,462 @@
+/* ============================
+   Reset & Global Styles
+============================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* Light gray background */
+    color: #333; /* Dark text */
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* ============================
+     Header & Navigation
+  ============================ */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin-left: 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  nav ul li a:hover {
+    color: #0056b3;
+  }
+  
+  /* ============================
+     Hero Section
+  ============================ */
+  .hero {
+    background-color: #545454;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+  }
+  
+  .hero-text h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  
+  .hero-text p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  /* ============================
+     Buttons (Reusable)
+  ============================ */
+  .btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* ============================
+     About Section
+  ============================ */
+  .about {
+    background-color: #0056b3;
+    padding: 80px 0;
+  }
+  
+  .about-text {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .about-text h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .about-text p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+  }
+  
+  /* ============================
+     Features Section
+  ============================ */
+  .features {
+    background-color: #0056b3;
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .features h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+  
+  .feature {
+    max-width: 300px;
+    margin: 0 auto 40px;
+  }
+  
+  .feature i {
+    font-size: 3em;
+    color: #5aaaff;
+    margin-bottom: 20px;
+  }
+  
+  .feature h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .feature p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+  }
+  
+  /* ============================
+     Testimonials Section
+  ============================ */
+  .testimonials {
+    background-color: #333;
+    color: #fff;
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .testimonials h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+  
+  .testimonial {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    padding: 20px;
+    background-color: #555;
+  }
+  
+  .testimonial p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+  }
+  
+  .testimonial cite {
+    font-style: normal;
+  }
+  
+  /* ============================
+     Footer
+  ============================ */
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+
+  
+  /* ============================
+     Forum Section
+  ============================ */
+  .forum {
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .forum h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+  
+  .forum-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .forum-post {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    width: 300px;
+  }
+  
+  .forum-post h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .forum-post p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+  }
+  
+  .forum-post .author {
+    font-style: italic;
+    font-size: 0.9em;
+  }
+  
+  /* Forum Topics & Categories */
+  #content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .forum-topics,
+  .forum-categories {
+    margin-bottom: 30px;
+  }
+  
+  .forum-topics h3,
+  .forum-categories h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .forum-topics ul,
+  .forum-categories ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .forum-topics li,
+  .forum-categories li {
+    margin-bottom: 10px;
+  }
+  
+  .forum-topics a,
+  .forum-categories a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .forum-topics a:hover,
+  .forum-categories a:hover {
+    color: #007bff;
+  }
+  
+  /* ============================
+     Login/Logout Links
+  ============================ */
+  #loginLink {
+    background-color: #007bff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: #fff;
+  }
+  
+  #loginLink:hover {
+    background-color: #0056b3;
+    transition: background-color 0.3s;
+  }
+  
+  #loginLogoutButton a {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #loginLogoutButton a:hover {
+    background-color: #0056b3;
+  }
+  
+  /* ============================
+     Profile Section
+  ============================ */
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 5px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-info h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .profile-info p {
+    margin-bottom: 10px;
+  }
+  
+  .bio {
+    font-style: italic;
+    color: #555;
+  }
+  
+  .social-links {
+    margin-top: 10px;
+  }
+  
+  .social-links a {
+    margin-right: 10px;
+  }
+  
+  .social-links img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .profile-courses h3,
+  .profile-certificates h3,
+  .profile-skills h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-courses ul,
+  .profile-certificates ul,
+  .profile-skills ul {
+    list-style: none;
+  }
+  
+  .profile-courses li,
+  .profile-certificates li,
+  .profile-skills li {
+    margin-bottom: 5px;
+  }
+  
+  /* Additional container for profile pages */
+  .profile, .profile-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+  }
+  
+  /* ============================
+     Roadmap Section
+  ============================ */
+  .roadmap-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  
+  .roadmap-card h3 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .roadmap-card p {
+    color: #666;
+  }
+  
+  .roadmap-card .btn {
+    margin-top: 10px;
+  }
+  
+  .roadmap {
+    margin-bottom: 30px;
+  }
+  
+  .view-roadmap-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .view-roadmap-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .roadmap-details {
+    display: none;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .roadmap-details h4 {
+    margin-bottom: 10px;
+  }
+  
+  .roadmap-details h5 {
+    margin: 20px 0 10px;
+  }
+  
+  .roadmap-details ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .roadmap-details ul li {
+    margin-bottom: 5px;
+  }
+  
+  /* ============================
+     Active Navigation Link
+  ============================ */
+  .nav-links li.active a {
+    color: #007bff;
+  }
+  

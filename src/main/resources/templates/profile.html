@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Course Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    
+        <header>
+            <div class="navbar">
+                <h1>Skillspace</h1>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="roadmap.html">Roadmap</a></li>
+                        <li><a href="rank.html">Rank</a></li>
+                        <li><a href="forum.html">Discussion Forum</a></li>
+                        
+                        <li class="active"><div class="profile-icon" onclick="openProfile()">
+                            <i class="fas fa-user-circle"></i> <!-- Placeholder icon -->
+                            <span>profile</span> <!-- Placeholder name -->
+                        </div></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+   
+
+    <div class="container">
+        <div class="profile">
+            <div class="profile-header">
+                <div class="profile-picture">
+                    <img src="img.png" alt="Profile Picture">
+                </div>
+                <div class="profile-info">
+                    <h2>John Doe</h2>
+                    <p>Email: john@example.com</p>
+                    <p>Location: New York, USA</p>
+                    <p>Education: Bachelor in information technology</p>
+                    <p>College:ANURAG UNIVERSITY</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/johndoe" target="_blank"><i class="fab fa-linkedin fa-lg" style="color: blue;"></i></a> <!-- Increase size and set color to blue -->
+            <a href="https://github.com/johndoe" target="_blank"><i class="fab fa-github fa-lg" style="color: blue;"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-section">
+                <h3>Enrolled Courses</h3>
+                <ul>
+                    <li>Web Development Fundamentals</li>
+                    <li>Introduction to JavaScript</li>
+                    <li>Python Programming Basics</li>
+                </ul>
+            </div>
+            <div class="profile-section">
+                <h3>Skills</h3>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Course Platform</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

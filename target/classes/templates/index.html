@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - SkillSpace</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #26508980; /* Vibrant background color */
+            color: #fff; /* Text color */
+        }
+
+        header {
+            background-color: #333; /* Navbar background color */
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333; /* Navbar background color */
+            padding: 20px;
+        }
+
+        .logo {
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        .nav-links {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end; /* Align navigation links to the right */
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #ffeb3b; /* Hover color */
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #eff1ee; /* Button background color */
+            color: #3954b093; /* Button text color */
+            padding: 10px 20px;
+            margin-top: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff6f61; /* Hover background color */
+            color: #fff; /* Hover text color */
+        }
+
+        footer {
+            background-color: #333; /* Footer background color */
+            color: #3384acaf;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive styles */
+        @media only screen and (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .content {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div th:replace="~{header :: header}"></div>
+    
+    <div id="content">
+        
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Welcome to SkillSpace</h2>
+                <p>Plan your learning journey with our expertly crafted roadmaps.</p>
+                <a href="courses" class="btn">Explore courses</a> <!-- Updated link to roadmaps -->
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="about-text">
+                <h2>About SkillSpace</h2>
+                <p>SkillSpace is an online learning platform dedicated to helping individuals enhance their skills and achieve career success. We offer a wide range of roadmaps in various domains, designed to guide you through your learning journey. Whether you're looking to upskill, reskill, or explore new career paths, SkillSpace has something for everyone.</p>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Why Choose SkillSpace?</h2>
+            <div class="feature">
+                <i class="fas fa-chalkboard-teacher"></i> <!-- Placeholder icon for expert guidance -->
+                <h3>Expert Guidance</h3>
+                <p>Our roadmaps are curated by industry experts to provide you with the best learning experience.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-book"></i> <!-- Placeholder icon for comprehensive content -->
+                <h3>Comprehensive Content</h3>
+                <p>Our roadmaps cover a wide range of topics and skills, ensuring you have everything you need to succeed.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-trophy"></i> <!-- Placeholder icon for achievement -->
+                <h3>Recognition</h3>
+                <p>Earn badges and certificates as you progress through our roadmaps.</p>
+            </div>
+        </section>
+        
+
+        <section class="testimonials">
+            <h2>What Our Learners Say</h2>
+            <div class="testimonial">
+                <p>"SkillSpace has transformed my learning journey! The roadmaps are comprehensive and easy to follow."</p>
+                <cite>- John Doe</cite>
+            </div>
+            <div class="testimonial">
+                <p>"I love the structured approach of SkillSpace roadmaps. It has helped me stay focused and motivated."</p>
+                <cite>- Jane Smith</cite>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SkillSpace</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

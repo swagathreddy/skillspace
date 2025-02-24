@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmaps - SkillSpace</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <th:block th:include="header"></th:block>
+    </header>
+
+    <div id="content">
+        <section class="roadmap">
+            <h2>Roadmaps</h2>
+            
+            <div class="roadmap-card" th:each="roadmap : ${roadmaps}">
+              
+                <h3 th:text="${roadmap.title}">Roadmap Title</h3>
+                <p th:text="${roadmap.description}">Roadmap Description</p>
+                <strong>Basics:</strong> <a th:href="${roadmap.basicsLink}" target="_blank">Watch Basics</a><br>
+                <strong>Intermediate:</strong> <a th:href="${roadmap.intermediateLink}" target="_blank">Watch Intermediate</a><br>
+                <strong>Advanced:</strong> <a th:href="${roadmap.advancedLink}" target="_blank">Watch Advanced</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SkillSpace</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Profile Stats</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            color: #2c3e50;
+            font-size: 2.2em;
+        }
+
+        .profile-form {
+            max-width: 500px;
+            margin: 0 auto 30px;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .results {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .profile-card {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-card h2 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+            font-size: 1.5em;
+        }
+
+        .stats {
+            font-size: 1.2em;
+            color: #34495e;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .error {
+            color: #e74c3c;
+            text-align: center;
+            margin: 10px 0;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <th:block th:include="header"></th:block>
+    </header>
+    
+    <div class="container">
+        <h1>Coding Profile Statistics</h1>
+        
+        <div class="profile-form">
+            <div class="form-group">
+                <label for="geeksUsername">GeeksforGeeks Username</label>
+                <input type="text" id="geeksUsername" name="geeksUsername" placeholder="Enter GeeksforGeeks username">
+            </div>
+            
+            <div class="form-group">
+                <label for="leetcodeUsername">LeetCode Username</label>
+                <input type="text" id="leetcodeUsername" name="leetcodeUsername" placeholder="Enter LeetCode username">
+            </div>
+            
+            <button id="fetchButton" onclick="getProblemSolves()">Fetch Statistics</button>
+            <div class="error" id="errorMessage"></div>
+        </div>
+
+        <div class="loading" id="loading"></div>
+        
+        <div class="results">
+            <div class="profile-card">
+                <h2>GeeksforGeeks</h2>
+                <div class="stats" id="geeksRank">No data fetched yet</div>
+            </div>
+            
+            <div class="profile-card">
+                <h2>LeetCode</h2>
+                <div class="stats" id="leetcodeRank">No data fetched yet</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      function getProblemSolves() {
+    const geeksUsername = document.getElementById('geeksUsername').value.trim();
+    const leetcodeUsername = document.getElementById('leetcodeUsername').value.trim();
+    const button = document.getElementById('fetchButton');
+    const loading = document.getElementById('loading');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    // Validate inputs
+    if (!geeksUsername || !leetcodeUsername) {
+        errorMessage.textContent = 'Please enter both usernames';
+        errorMessage.style.display = 'block';
+        return;
+    }
+
+    // Reset error message and disable button
+    errorMessage.style.display = 'none';
+    button.disabled = true;
+    loading.style.display = 'block';
+
+    // Update UI to show loading state
+    document.getElementById('geeksRank').innerHTML = 'Fetching...';
+    document.getElementById('leetcodeRank').innerHTML = 'Fetching...';
+
+    // Make the API call
+    fetch(`/getProblemSolves?geeksUsername=${encodeURIComponent(geeksUsername)}&leetcodeUsername=${encodeURIComponent(leetcodeUsername)}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Check if the data contains error messages
+            const geeksData = data.geeksProblemSolves;
+            const leetcodeData = data.leetcodeProblemSolves;
+
+            document.getElementById('geeksRank').innerHTML = 
+                geeksData.includes('Error') ? 
+                `<span style="color: #e74c3c;">Unable to fetch GFG profile</span>` : 
+                `Coding Score: <strong>${geeksData}</strong>`;
+
+            document.getElementById('leetcodeRank').innerHTML = 
+                leetcodeData.includes('Error') ? 
+                `<span style="color: #e74c3c;">Unable to fetch LeetCode profile</span>` : 
+                `Problems Solved: <strong>${leetcodeData}</strong>`;
+
+            // Show error message if both failed
+            if (geeksData.includes('Error') && leetcodeData.includes('Error')) {
+                errorMessage.textContent = 'Failed to fetch profiles. Please verify the usernames and try again.';
+                errorMessage.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            errorMessage.textContent = 'Failed to fetch profile data. Please try again.';
+            errorMessage.style.display = 'block';
+            document.getElementById('geeksRank').innerHTML = 'Error fetching data';
+            document.getElementById('leetcodeRank').innerHTML = 'Error fetching data';
+        })
+        .finally(() => {
+            button.disabled = false;
+            loading.style.display = 'none';
+        });
+}
+</script>
+</body>
+</html>

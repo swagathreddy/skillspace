@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${question.title}">Page Title</title>
+</head>
+<body>
+    <h1 th:text="${question.title}">Question Title</h1>
+    <p th:text="${question.content}">Question Content</p>
+    
+    <!-- Form for adding answers -->
+    <form method="post" th:action="@{/add_answer/{id}(id=${question.id})}">
+        <!-- <input type="hidden" name="_csrf" th:value="${_csrf.token}" /> -->
+        <textarea name="content" rows="4" cols="50" placeholder="Your answer"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Answers</h2>
+    <ul>
+        <li th:each="answer : ${question.answers}" th:text="${answer.content}">Answer Content</li>
+    </ul>
+</body>
+</html>
